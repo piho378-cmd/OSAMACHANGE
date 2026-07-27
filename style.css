@@ -1,1 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma", sans-serif;
+    direction: rtl;
+    transition: 0.4s;
+}
+
+/* الوضع الليلي */
+body.night {
+    background: url("background.png") center/cover no-repeat;
+    color: white;
+}
+
+/* الوضع النهاري */
+body.day {
+    background: url("day.jpg") center/cover no-repeat;
+    color: black;
+}
+
+/* زر تغيير الوضع */
+.mode-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 12px 18px;
+    background: #ffd700;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* المحتوى */
+.container {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.subtitle {
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* البطاقة */
+.card {
+    background: rgba(255,255,255,0.12);
+    width: 330px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+/* النموذج */
+.converter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.converter input,
+.converter select {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.15);
+    color: inherit;
+}
+
+.converter button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #ffd700;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
