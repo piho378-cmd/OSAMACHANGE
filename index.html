@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Osama Change</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="night">
+
+    <button class="mode-btn" onclick="toggleMode()">تغيير الوضع</button>
+
+    <div class="container">
+        <h1>Osama Change</h1>
+        <p class="subtitle">محول عملات سريع ودقيق</p>
+
+        <div class="card">
+            <form class="converter">
+
+                <label>المبلغ</label>
+                <input type="number" id="amount" placeholder="أدخل المبلغ">
+
+                <label>من عملة</label>
+                <select id="from">
+                    <option value="USD">دولار أمريكي (USD)</option>
+                    <option value="SAR">ريال سعودي (SAR)</option>
+                    <option value="AED">درهم إماراتي (AED)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                </select>
+
+                <label>إلى عملة</label>
+                <select id="to">
+                    <option value="SAR">ريال سعودي (SAR)</option>
+                    <option value="USD">دولار أمريكي (USD)</option>
+                    <option value="AED">درهم إماراتي (AED)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                </select>
+
+                <button type="button" onclick="convert()">تحويل</button>
+
+                <p id="result"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const rates = {
+            USD: 3.75,
+            SAR: 1,
+            AED: 0.98,
+            EUR: 4.10
+        };
+
+        function convert() {
+            let amount = document.getElementById("amount").value;
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+
+            if (amount === "") {
+                document.getElementById("result").innerText = "الرجاء إدخال المبلغ";
+                return;
+            }
+
+            let sarValue = amount * rates[from];
+            let finalValue = sarValue / rates[to];
+
+            document.getElementById("result").innerText =
+                `النتيجة: ${finalValue.toFixed(2)} ${to}`;
+        }
+
+        function toggleMode() {
+            const body = document.body;
+
+            if (body.classList.contains("night")) {
+                body.classList.remove("night");
+                body.classList.add("day");
+            } else {
+                body.classList.remove("day");
+                body.classList.add("night");
+            }
+        }
+    </script>
+
+</body>
+</html>
 
